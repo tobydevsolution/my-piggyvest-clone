@@ -1,126 +1,129 @@
-// // var message = document.querySelector("button").style.BackgroundColor = "blue";
-// // document.querySelector("create-button").style.backgroundColor = "blue";
-// // // console.log(document.body);
-// // var button = document
-// //   .getElementById("button")
-// //   .addEventListener("click", buttonClick);
+// document.documentElement.className = "index.js";
 
-// // function buttonClick(e) {
-// //   document.querySelector(".main-section").style.backgroundColor = "red";
-// //   console.log(e);
-// // }
-// var box = document.getElementById("box");
+// var menu = document.querySelector(".navbar-nav"),
+//   button = document.querySelector(".navbar-toggler"),
+//   dropdown = document.querySelector(".navbar");
 
-// // var submit = document.getElementById("create-btn");
-// // var button = document.getElementById("button");
-// // button.addEventListener("click", runEvent);
-// // button.addEventListener("mouseup", runEvent);
-// // button.addEventListener("mousedown", runEvent);
-// // button.addEventListener("mouseup", runEvent);
-// // box.addEventListener("mouseenter", runEvent);
-// // box.addEventListener("mouseleave", runEvent);
-// // box.addEventListener("mouseover", runEvent);
-// // box.addEventListener("mouseout", runEvent);
-// // box.addEventListener("mousemove", runEvent);
-// // box.addEventListener("keydown", runEvent);
-// // box.addEventListener("keyup", runEvent);
-// // function runEvent(e) {
-// //   console.log("EVENT TYPE:" + e.type);
-// //   box.style.backgroundColor = "coral";
-// // }
+// button.onclick = function () {
+//   classie.toggle(navbar - nav, "navbar-nav-active");
+// };
 
-// // box.addEventListener("click", changeColor);
-
-// box.addEventListener("click", changeColor);
-
-// // function changeColor(e) {
-// //   document.querySelector("body");
-// //   console.log(e);
-// // }
-
-// function changeColor(e) {
-//   e.preventDefault();
-//   document.querySelector(".main-section").style.backgroundColor = "red";
-//   console.log(e);
-// }
-
-// var savings = document.querySelectorAll(".savings-box");
-// var arrowbtn = document.querySelectorAll(".safelock");
-// console.log(savings);
-
-// savings.addEventListener("mouseout", colorChange);
-// savings.addEventListener("click", colorChange);
-// savings.addEventListener("mouseover", colorChange());
-// savings.addEventListener("mouseout", transParent());
-// e.preventDefault();
-//   savings[i].style.borderRadius = "50%";
-//   console.log("EVENT TYPE:" + e.type);
-// function colorChange(e) {
-//   for (i = 0; i < savings.length; i++) {
-// savings[i].style.backgroundColor = "coral";
-// alert("i selected it");
-//   }
-// }
-// function transParent() {
-//   savings[i].style.backgroundColor = "yellow";
-// }
-
-// for (i = 0; i < arrowbtn.length; i++) {
-//   arrowbtn[i].style.backgroundColor = "coral";
-// }
-
-// var createbtn = document.querySelector(".mobile-buttons");
-// console.log(createbtn);
-
-// var title = document.querySelector("#main-heading");
-// const listItems = document.querySelectorAll('.list-item');
-//
-// for (i = 0; i<listItems.length; i++) {
-//   listItems[i].style.fontSize = "7.4rem";
-// }
-// console.log(listItems);
-
-// document.querySelector(".savings-box").addEventListener("click", function (e) {
-//   console.log(e.target.getAttribute("class") + " is clicked ");
-
-//   const target = e.target;
-//   e.preventDefault();
-//   if (target.matches(".saving-icons")) {
-//     target.style.backgroundColor = "blue";
+// // Close menu when clicking outside
+// // See: https://css-tricks.com/dangers-stopping-event-propagation/
+// document.addEventListener("click", function (event) {
+//   if (event.target !== dropdown && !dropdown.contains(event.target)) {
+//     // hide the menu
+//     classie.removeClass(menu, "navbar-nav-active");
 //   }
 // });
 
-// document
-//   .querySelector(".message-box")
-//   .addEventListener("click", function (e) {});
+const loginForm = document.getElementById("login-form");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
 
-// function myMove() {
-//   var elem = document.getElementById("animate");
-//   var pos = 0;
-//   var id = setInterval(frame, 5);
-//   function frame() {
-//     if (pos == 350) {
-//       clearInterval(id);
-//     } else {
-//       pos++;
-//       elem.style.top = pos + "px";
-//       elem.style.left = pos + "px";
-//     }
+window.onscroll = function () {
+  scrollFunnction();
+};
+
+function scrollFunnction() {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    document.getElementById("navbar").style.backgroundColor = "#fff";
+  } else {
+    document.getElementById("navbar").style.backgroundColor = "transparent";
+  }
+}
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  validateInputs();
+});
+
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
+};
+
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
+};
+
+const isValidEmail = (email) => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
+
+const validateInputs = () => {
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+
+  if (emailValue === "") {
+    setError(email, "Email is required");
+  } else if (!isValidEmail(emailValue)) {
+    setError(email, "Provide a valid email address");
+  } else {
+    setSuccess(email);
+  }
+
+  if (passwordValue === "") {
+    setError(password, "Password is required");
+  } else if (passwordValue.length < 8) {
+    setError(password, "Password must be at least 8 character.");
+  } else {
+    setSuccess(password);
+  }
+};
+
+// // const messages = document.querySelectorAll(".message-box");
+// const observer = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       entry.target.classList.toggle("card-slider", entry.isIntersecting);
+//     });
+//   },
+//   {
+//     threshold: 0,
+//   }
+// );
+// const lastMessageObserver = new IntersectionObserver(
+//   (entries) => {
+//     const lastMessage = entries[0];
+//     if (!lastMessage.isIntersecting) return;
+//     loadNewMessages();
+//     lastMessageObserver.unobserve(lastMessage.target);
+//     lastMessageObserver.observe(
+//       document.querySelector(".message-box:last-child")
+//     );
+//   },
+//   {
+//     rootMargin: "50px",
+//   }
+// );
+// lastMessageObserver.observe(document.querySelector(".message-box:last-child"));
+
+// messages.forEach((message-box) => {
+//   observer.observe(message-box)
+// });
+
+// const messageSlider = document.querySelector(".message-slider");
+// function loadNewMessages() {
+//   for (let i = 0; i < 4; i++) {
+//     const message = document.createElement("div");
+//     message.textContent = "New Message";
+//     message.classList.add("message-box");
+//     messageSlider.append(message - box);
 //   }
 // }
-
-// var learnButton = document.querySelectorAll(".message-box");
-// learnButton.addEventListener("click", function () {
-//   for (i = 0; i < learnButton.length; i++) {
-//     learnButton[i].style.transform = "translateY(250px)";
-//   }
-// });
-// document.getElementById("savings-bobg");
-
-// setTimeout(function (a, b) {
-//   console.log("I clicked on it");
-// }, 1000);
-// return;
-
-// console.log("Hello");
-// alert("Im here to fight");

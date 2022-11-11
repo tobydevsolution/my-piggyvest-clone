@@ -35,11 +35,6 @@
 
     <!-- BOOTSTRAP JAVASCRIPT -->
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.js"
-      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-      crossorigin="anonymous"
-    ></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -50,16 +45,17 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
-    ></script>
+    ></script> 
+    <script src="js/index.js" defer></script>
   </head>
   <body>
     <div class="transparent">
 
     </div>
     <header>
-      <nav class="navbar fixed-top navbar-expand-lg p-4">
+      <nav class="navbar fixed-top navbar-expand-lg p-4" id="navbar">
         <div class="container">
- 
+
           <span
             ><a class="navbar-brand" href="#"
               ><img src="images/th.jpeg" class="piggyvest-logo" alt=""> </a
@@ -93,15 +89,15 @@
                 <a class="nav-link" href="#">Blog</a>
               </li>
             </ul>
-            <form class="d-flex mr-4" role="search">
-              <button 
+            <form class="mr-4" role="search">
+              <button
                 class="btn btn-outline signin-button" id="create-btn"
                 type="submit"
-              > <a href="login.html">  Sign in</a>
-              
+              > <a href="/login.html">  Sign in</a>
+
               </button>
               <input
-                class="form-control me-2 create-button"
+                class="form-control me-2 create-button d-block"
                 type="button"
                 value="Create free account"
               />
@@ -112,8 +108,7 @@
 
       <!-- THE PIGGYVEST MAIN-SECTION -->
       <div class="container">
-        <div class="main-section">     
-    <button></button>
+        <div class="main-section">
 
             <div class="row">
                 <div class="col-lg-6 col-md-6">
@@ -139,7 +134,7 @@
                 </div>
 
                 </div>
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-6 col-md-12 img-row">
                   <div class="main-img">
                     <img src="images/headerImg.png" class="main-img" alt="" />
                   </div>
@@ -180,13 +175,11 @@
                 <div class="col-lg-4 col-md-12 savings-box" id="savings-nobg">
                     <h2>4 ways to build your savings</h2>
                   <p>Earn 5%-15% when you save with any of these PiggyVest plans.</p>
-                 
+
                   <br>
-                  
-                  <input
-                  class="bg-dark me-2 start-saving"
-                  type="button"
-                  value="start saving" /> </div> 
+                  <div class="start-saving bg-dark">
+                  <button type="button">start-saving</button>
+                 </div> </div>
                 <div class="col-lg-4 savings-box">
                     <a href="#">
                   <div class="savings-icons mb-4">
@@ -288,57 +281,70 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
-                <div class="row message-box">
+              <div class="message-slider">
+              <div class="message-box">
+                <div class="col-12">
+                <div class="row">
                     <div class="col-2">
                     <img src="images/Tobi1.jpg" class="side-img" alt ="tobi1-msg">
                     </div>
             <div class="col-10">
-              <small>Thursday, 6th of October 2022 by 11:42 AM</small>
-             <p> <strong> Tobiloba E.</strong></p>
-              <p><small>Thanks to piggyvest i've been able to save enough money to start a really large business</small></p>
+              <p>6th of October 2022 by 11:42 AM</p> 
+             <p><strong> Tobiloba E.</strong></p>
+              <p>Thanks to piggyvest i've been able to save enough money to start a really large business</p>
               </div>
             </div>
+          </div>
+        </div>
                 <div class="row">
+                  <div class="message-box">
                     <div class="col-12">
-                        <div class="row message-box">
+                        <div class="row">
                         <div class="col-2">
                                 <img src="images/Tobi1.jpg" class="side-img" alt ="tobi1-msg">
                             </div>
                         <div class="col-10">
-                      <small>Wednesday, 5th of October 2022 by 03:08 AM</small>
-                      <p> <strong>Chike E.j</strong></p>
-                      <p><small> <p>I just signed up i think their incentives are great for business</p></small></p>
+                     <p>Wednesday, 5th of October 2022 by 03:08 AM</p> 
+                      <p><strong>Chike E.j</strong></p>
+                      <p>I just signed up i think their incentives are great for business</p>
                     </div>
                       </div>
                     </div>
+                  </div>
                 </div>
                 <div class="row">
+                  <div class="message-box">
                 <div class="col-12">
-                    <div class="row message-box">
+                    <div class="row">
                     <div class="col-2">
                     <img src="images/Tobi1.jpg" class="side-img" alt ="tobi1-msg">
                     </div>
                     <div class="col-10">
-                      <small>Tuesday, 4th of October 2022 by 11:42 AM</small>
+                      <p> Tuesday, 4th of October 2022 by 11:42 AM</p>
                       <p> <strong>Chioma A.</strong></p>
-                      <p><small>Piggyvest was introduced to me years ago and years on i have no regret with this platform, I highly recommend</small></p>
+                      <p>Piggyvest was introduced to me years ago and years on i have no regret with this platform, I highly recommend</p>
                     </div>
                       </div>
                     </div>
+                  </div>
                 </div>
                 <div class="row">
+                  <div class="message-box">
                 <div class="col-12">
-                    <div class="row message-box">
+                    <div class="row">
+
                  <div class="col-2">
                     <img src="images/37268474-fake-human-circle-img.png" class="side-img" alt ="tobi1-msg">
                     </div>
                  <div class="col-10">
-                      <small>Saturday, 24th of September 2022 by 09:42 AM</small>
+                      <p>24th of September 2022 by 09:42 AM</p> 
                         <p><strong> Newguy rex.</strong></p>
-                      <p><small>I only just started using piggyvest and the experienced has been good wish i'd started sooner</small></p>
+                      <p>I only just started using piggyvest and the experienced has been good wish i'd started sooner</p>
                     </div>
                       </div>
                     </div>
+                  </div>
+                </div>
                 </div>
 
             </div>
@@ -441,6 +447,6 @@
  </div>
 </footer>
 
-<script src="js/index.js"></script>
+
   </body>
 </html>
